@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -16,11 +15,7 @@ public class Movement : MonoBehaviour
     public float movementSpeed;
     bool isClickable;
 
-    private void Awake()
-    {
-        boy = 2f;
-        movementSpeed = 3000;
-    }
+
 
     void Start()
     {
