@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManage : MonoBehaviour
 {
-     private int score;
-    [SerializeField] private GameObject scoreText;
+     public static int score;
+     public Text scoreText;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +18,7 @@ public class LevelManage : MonoBehaviour
     void Update()
     {
        
-        scoreText.GetComponent<TMP_Text>().SetText(score.ToString());
+        scoreText.text = "Score: " +Mathf.Round(score) ;
        
-    }
-
-    public void AddScore(int point)
-    {
-        score += point;
     }
 }
