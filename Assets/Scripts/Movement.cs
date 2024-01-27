@@ -14,14 +14,15 @@ public class Movement : MonoBehaviour
     Rigidbody rb;
     public float movementSpeed;
     bool isClickable;
-    public int health;
+   private GameObject _setValues;
+   
+   private bool isCWrongObj;
 
 
 
     void Start()
     {
-        health = 3;
-       
+        _setValues=GameObject.Find("LevelManage");
         Blok.localScale = new Vector3(Blok.transform.localScale.x,boy,Blok.transform.localScale.z);
         rb = GetComponent<Rigidbody>();
     }
@@ -37,10 +38,16 @@ public class Movement : MonoBehaviour
             LevelManage.score += 10;
             Destroy(gameObject);
         }
-        else
+       if(!isClickable&&_setValues.GetComponent<setValues>().health>0)
         {
-            health--;
+            _setValues.GetComponent<setValues>().health--;
+            Debug.Log(_setValues.GetComponent<setValues>().health);
         }
+
+       if (isClickable&&isCWrongObj)
+       {
+           _setValues.GetComponent<setValues>().health--;
+       }
 
     }
     private void OnTriggerStay(Collider other)
@@ -49,8 +56,12 @@ public class Movement : MonoBehaviour
         {
            
            isClickable = true;
+           if (gameObject.name == "WrongObject")
+           {
+               isCWrongObj = true;
+           }
         }
-        else
+        if(other.tag==null)
         {
             isClickable = false;
         }
@@ -59,7 +70,7 @@ public class Movement : MonoBehaviour
     {
         if (other.tag == "Line")
         {
-            isClickable = false;
+            _setValues.GetComponent<setValues>().health--; 
         }
     }
     public void BoyutDusurme(float Dusur)
@@ -77,5 +88,10 @@ public class Movement : MonoBehaviour
     {
         Time.timeScale = 1;
         movementSpeed *= 1.2f;
+    }
+
+    private void OnDestroy()
+    {
+        
     }
 }

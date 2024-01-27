@@ -150,6 +150,7 @@ MonoBehaviour:
   boy: 3
   Blok: {fileID: 630013380854663831}
   movementSpeed: 2500
+  _setValues: {fileID: 0}
 --- !u!54 &1696563548617743770
 Rigidbody:
   m_ObjectHideFlags: 0

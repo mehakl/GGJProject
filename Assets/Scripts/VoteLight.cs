@@ -1,30 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class VoteLight : MonoBehaviour
 {
-    Animator animator;
-    [SerializeField] Movement mov;
+    private int health;
     // Start is called before the first frame update
     void Start()
     {
-        animator= GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
+
     void Update()
     {
-        
-    }
-    private void OnAnimatorMove()
-    {
-        if (animator != null && mov.enabled)
+        health = GameObject.Find("LevelManage").GetComponent<setValues>().health;
+        for (int i = 0; i <transform.childCount-health; i++)
         {
-            if(mov.health==0)
-            {
-                animator.SetBool("turnRed", true);
-            }
-        }
+            gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material.color=Color.red;
+        } 
     }
+  
 }
