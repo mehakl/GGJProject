@@ -147,8 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482ac768957b39a43bf220f741357d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamecanvas: {fileID: 0}
-  secimekrani: {fileID: 0}
   boy: 2
   Blok: {fileID: 630013380854663831}
   movementSpeed: 3000

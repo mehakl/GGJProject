@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 public class Movement : MonoBehaviour
 {
     
-    public GameObject gamecanvas, secimekrani;
+
     public float boy = 2f;
     public Transform Blok;
     Rigidbody rb;
@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour
     
     void Start()
     {
+       
         Blok.localScale = new Vector3(Blok.transform.localScale.x,boy,Blok.transform.localScale.z);
         rb = GetComponent<Rigidbody>();
     }
@@ -52,9 +53,12 @@ public class Movement : MonoBehaviour
     }
     public void BoyutDusurme(float Dusur)
     {
-        boy -= Dusur;
+        if (boy >= 1)
+        {
+            boy -= Dusur;
+        }
+     
         Time.timeScale = 1;
-       // gamecanvas.SetActive(true);         Eriþemiyor!
-       // secimekrani.SetActive(false);      Eriþemiyor!
+
     }
 }

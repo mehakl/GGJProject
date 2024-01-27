@@ -24,10 +24,12 @@ public class GameManager : MonoBehaviour
         if (isUpgradeble)
         {    
             Time.timeScale = 0;
-            gamecanvas.SetActive(false);            // OYUN TEKRAR BAÞLADIÐINDA SCORE HALA 50 OLDUÐU ÝÇÝN ISUPGRADABLE TRUE OLUYOR.
-            secimekrani.SetActive(true);   
+            gamecanvas.SetActive(false);            // OYUN TEKRAR BAï¿½LADIï¿½INDA SCORE HALA 50 OLDUï¿½U ï¿½ï¿½ï¿½N ISUPGRADABLE TRUE OLUYOR.
+            secimekrani.SetActive(true);
+            LevelManage.score = 0;
             isUpgradeble=false;
         }
+        Debug.Log(LevelManage.score);
        
     }
 }
