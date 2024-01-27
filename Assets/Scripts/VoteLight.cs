@@ -17,9 +17,11 @@ public class VoteLight : MonoBehaviour
     void Update()
     {
         health = GameObject.Find("LevelManage").GetComponent<setValues>().health;
+        
         for (int i = 0; i <transform.childCount-health; i++)
         {
             gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material.color=Color.red;
+
         } 
     }
   

@@ -19,10 +19,11 @@ public class setValues : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0)
+        if (health <= 0 && canvas != null)
         {
             canvas[0].SetActive(false);
             canvas[1].SetActive(true);
         }
+
     }
 }
