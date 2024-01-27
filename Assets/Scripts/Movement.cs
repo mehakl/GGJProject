@@ -10,12 +10,18 @@ public class Movement : MonoBehaviour
 {
     
 
-    public float boy = 2f;
+    public float boy ;
     public Transform Blok;
     Rigidbody rb;
     public float movementSpeed;
     bool isClickable;
-    
+
+    private void Awake()
+    {
+        boy = 2f;
+        movementSpeed = 3000;
+    }
+
     void Start()
     {
        
@@ -34,6 +40,10 @@ public class Movement : MonoBehaviour
             LevelManage.score += 10;
             Destroy(gameObject);
         }
+        else
+        {
+           Debug.Log("Canın azaldı");
+        }
 
     }
     private void OnTriggerStay(Collider other)
@@ -42,6 +52,10 @@ public class Movement : MonoBehaviour
         {
            
            isClickable = true;
+        }
+        else
+        {
+            isClickable = false;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -60,5 +74,11 @@ public class Movement : MonoBehaviour
      
         Time.timeScale = 1;
 
+    }
+
+    public void increaseSpeed()
+    {
+        Time.timeScale = 1;
+        movementSpeed *= 1.4f;
     }
 }

@@ -147,9 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482ac768957b39a43bf220f741357d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boy: 2
+  boy: 1.5999999
   Blok: {fileID: 630013380854663831}
-  movementSpeed: 3000
+  movementSpeed: 22588.61
 --- !u!54 &1696563548617743770
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
             LevelManage.score = 0;
             isUpgradeble=false;
         }
-        Debug.Log(LevelManage.score);
+  
        
     }
 }
