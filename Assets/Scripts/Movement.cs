@@ -14,11 +14,13 @@ public class Movement : MonoBehaviour
     Rigidbody rb;
     public float movementSpeed;
     bool isClickable;
+    public int health;
 
 
 
     void Start()
     {
+        health = 3;
        
         Blok.localScale = new Vector3(Blok.transform.localScale.x,boy,Blok.transform.localScale.z);
         rb = GetComponent<Rigidbody>();
@@ -37,7 +39,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-           Debug.Log("Canın azaldı");
+            health--;
         }
 
     }
@@ -74,6 +76,6 @@ public class Movement : MonoBehaviour
     public void increaseSpeed()
     {
         Time.timeScale = 1;
-        movementSpeed *= 1.4f;
+        movementSpeed *= 1.2f;
     }
 }

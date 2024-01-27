@@ -8,8 +8,8 @@ public class setValues : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        movScript.movementSpeed = 3000f;
-        movScript.boy = 2;
+        movScript.movementSpeed = 3500f;
+        movScript.boy = 10;
     }
 
     // Update is called once per frame

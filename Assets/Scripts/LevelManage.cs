@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class LevelManage : MonoBehaviour
 {
      public static int score;
-     public Text scoreText;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,7 @@ public class LevelManage : MonoBehaviour
     void Update()
     {
        
-        scoreText.text = "Score: " +Mathf.Round(score) ;
+         ;
        
     }
 }
