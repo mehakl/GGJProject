@@ -14,7 +14,7 @@ public class setValues : MonoBehaviour
     void Start()
     {
         isDead = false;
-        movScript.movementSpeed = 3500f;
+        movScript.movementSpeed = 350f;
         movScript.boy = 15;
         
     }

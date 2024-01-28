@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        rb.velocity = Vector3.down * (movementSpeed * Time.deltaTime);
+        rb.velocity = Vector3.down * movementSpeed * Time.deltaTime;
     }
     public void onClick()
     {
