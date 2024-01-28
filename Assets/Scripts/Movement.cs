@@ -18,14 +18,16 @@ public class Movement : MonoBehaviour
    private bool isPassed;
    
    private bool isCWrongObj;
+    AudioSource scoreAudioEffect;
 
 
 
     void Start()
     {
+        scoreAudioEffect = GameObject.Find("AudioEffectScore").GetComponent<AudioSource>();
         isPassed = true;
         _setValues=GameObject.Find("LevelManage");
-        Blok.localScale = new Vector3(Blok.transform.localScale.x,boy,Blok.transform.localScale.z);
+        Blok.localScale = new Vector3(Blok.transform.localScale.x, boy,Blok.transform.localScale.z);
         rb = GetComponent<Rigidbody>();
     }
 
@@ -38,21 +40,25 @@ public class Movement : MonoBehaviour
         if (isClickable) 
         {
             LevelManage.score += 10;
+            scoreAudioEffect.Play();
             Destroy(gameObject);
         }
        if(!isClickable)
         {
             _setValues.GetComponent<setValues>().DecreaseHealth();
             Destroy(gameObject);
+         
         
         }
 
-       if (isClickable&&isCWrongObj)
+       /*if (isClickable&&isCWrongObj)
        {
            _setValues.GetComponent<setValues>().DecreaseHealth();
            Destroy(gameObject);
-           
-       }
+          
+
+        }
+       */
 
     }
     private void OnTriggerStay(Collider other)
@@ -61,10 +67,12 @@ public class Movement : MonoBehaviour
         {
            
            isClickable = true;
-           if (gameObject.name == "WrongObject")
+           /*if (gameObject.name == "WrongObject")
            {
                isCWrongObj = true;
+
            }
+           */
         }
         if(other.tag==null)
         {

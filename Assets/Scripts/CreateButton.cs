@@ -41,8 +41,8 @@ public class CreateButton : MonoBehaviour
             cloneObject.transform.localScale = new Vector3(button.transform.localScale.x, button.transform.localScale.y, button.transform.localScale.z);
           
             cloneObject.transform.Rotate(0,0,rotZ);
-            count++;
-           Invoke("createRandomObject",2);
+            //count++;
+           //Invoke("createRandomObject",2);
         
 
         }
