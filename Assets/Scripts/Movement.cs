@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
     public float movementSpeed;
     bool isClickable;
    private GameObject _setValues;
+   private bool isPassed;
    
    private bool isCWrongObj;
 
@@ -22,6 +23,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
+        isPassed = true;
         _setValues=GameObject.Find("LevelManage");
         Blok.localScale = new Vector3(Blok.transform.localScale.x,boy,Blok.transform.localScale.z);
         rb = GetComponent<Rigidbody>();
@@ -38,15 +40,18 @@ public class Movement : MonoBehaviour
             LevelManage.score += 10;
             Destroy(gameObject);
         }
-       if(!isClickable&&_setValues.GetComponent<setValues>().health>0)
+       if(!isClickable)
         {
-            _setValues.GetComponent<setValues>().health--;
-            Debug.Log(_setValues.GetComponent<setValues>().health);
+            _setValues.GetComponent<setValues>().DecreaseHealth();
+            Destroy(gameObject);
+        
         }
 
        if (isClickable&&isCWrongObj)
        {
-           _setValues.GetComponent<setValues>().health--;
+           _setValues.GetComponent<setValues>().DecreaseHealth();
+           Destroy(gameObject);
+           
        }
 
     }
@@ -68,9 +73,11 @@ public class Movement : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Line")
+        if (other.CompareTag("Line")&&isPassed)
         {
-            _setValues.GetComponent<setValues>().health--; 
+            _setValues.GetComponent<setValues>().DecreaseHealth();
+            isPassed = false;
+        
         }
     }
     public void BoyutDusurme(float Dusur)

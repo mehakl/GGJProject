@@ -6,7 +6,7 @@ public class setValues : MonoBehaviour
 {
     [SerializeField] private Movement movScript;
     public int health;
-    bool isDead;
+  
 
     [SerializeField] private GameObject[] canvas;
     // Start is called before the first frame update
@@ -20,13 +20,17 @@ public class setValues : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0 &&!isDead)
+        if (health <= 0 )
         {
-            isDead = true;
             health = 0;
             canvas[0].SetActive(false);
             canvas[1].SetActive(true);
         }
 
+    }
+
+    public void DecreaseHealth()
+    {
+        health--;
     }
 }

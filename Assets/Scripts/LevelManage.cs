@@ -25,5 +25,11 @@ public class LevelManage : MonoBehaviour
     public void loadCanvas()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 0f;
+    }
+
+    public void resume()
+    {
+        Time.timeScale = 1f;
     }
 }
