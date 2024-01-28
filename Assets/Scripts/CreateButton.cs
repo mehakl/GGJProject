@@ -58,7 +58,8 @@ public class CreateButton : MonoBehaviour
     {
         if (count == countFRand)
         {
-            cloneObject= Instantiate(button, spawnPoint.transform.position, Quaternion.Euler(0,45,0));
+            
+            cloneObject= Instantiate(button, spawnPoint.transform.position, Quaternion.identity);
             cloneObject.transform.SetParent(spawnPoint.transform.parent);
             cloneObject.transform.localScale = new Vector3(button.transform.localScale.x, button.transform.localScale.y, button.transform.localScale.z);
             cloneObject.name = "WrongObject";
